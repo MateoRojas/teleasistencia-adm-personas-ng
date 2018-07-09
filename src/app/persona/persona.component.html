@@ -1,0 +1,172 @@
+<h1>Persona</h1>
+
+<p-panel header = "Datos Personales">
+
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+      
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Primer nombre*:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.primerNombre" pInputText type="text" placeholder="E.j: Mateo"/>
+      </div>
+      <div class="ui-grid-col-2">
+        Segundo nombre:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.segundoNombre" pInputText type="text" placeholder="E.j: Sebastian"/>
+      </div>
+    </div>
+    
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Primer apellido*:
+      </div>
+      <div class="ui-grid-col-4">
+        <input  [(ngModel)]="persona.primerApellido" pInputText type="text" placeholder="E.j: Rojas"/>
+      </div>
+      <div class="ui-grid-col-2">
+        Segundo  apellido:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.segundoApellido" pInputText type="text" placeholder="E.j: Ortiz"/>
+      </div>
+    </div>
+    
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Cedula*:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.cedula" pInputText type="text" placeholder="E.j: 1726020074"/>
+      </div>
+      <div class="ui-grid-col-2">
+        Fecha nacimiento*:
+      </div>
+      <div class="ui-grid-col-4">
+        <p-calendar [(ngModel)]="persona.fechaNacimiento" [monthNavigator]="true" [yearNavigator]="true"  yearRange="1920:2030" dateFormat="dd/mm/yy"></p-calendar>
+      </div>
+    </div>
+
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Genero*:
+      </div>
+      <div class="ui-grid-col-2">
+        <p-dropdown [(ngModel)]="persona.idGenero" placeholder="Seleccione un genero" [showClear]="true"></p-dropdown>
+      </div>
+    </div>
+
+  </div>
+
+</p-panel>
+
+<p-panel header = "Datos Direccion">
+
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+      
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Calle Principal*:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.callePrincipal" pInputText type="text" placeholder="E.j: Antonio de Ulloa"/>
+      </div>
+      <div class="ui-grid-col-2">
+        Calle Secundaria:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.calleSecundaria" pInputText type="text" placeholder="E.j: Rumipamba"/>
+      </div>
+    </div>
+    
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Numeración*:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.numeracionDomicilio" pInputText type="text" placeholder="E.j: N34-141"/>
+      </div>
+      <div class="ui-grid-col-2">
+        Referencia*:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.referencia" pInputText type="text" placeholder="E.j: Frente a Top Seg"/>
+      </div>
+    </div>
+
+  </div>
+
+</p-panel>
+
+<p-panel header = "Datos de Contacto">
+
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+      
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Teléfono Principal*:
+      </div>
+      <div class="ui-grid-col-1">
+        <input pInputText type="text" placeholder="E.j: 02"/>
+      </div>
+      <div class="ui-grid-col-3">
+        <input [(ngModel)]="persona.telefonoPrincipal" pInputText type="text" placeholder="E.j: 2245155"/>
+      </div>
+      <div class="ui-grid-col-2">
+        Teléfono Secundario:
+      </div>
+      <div class="ui-grid-col-1">
+        <input pInputText type="text" placeholder="E.j: 02"/>
+      </div>
+      <div class="ui-grid-col-3">
+        <input [(ngModel)]="persona.telefonoSecundario" pInputText type="text" placeholder="E.j: 2245155"/>
+      </div>
+    </div>
+    
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Celular*:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.celular" pInputText type="text" placeholder="E.j: 0988817485"/>
+      </div>
+      <div class="ui-grid-col-2">
+        Email*:
+      </div>
+      <div class="ui-grid-col-4">
+        <input [(ngModel)]="persona.email" pInputText type="text" placeholder="E.j: mateo.rojas@udla.edu.ec"/>
+      </div>
+    </div>
+
+  </div>
+
+</p-panel>
+
+<p-panel header = "Auditoria">
+
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Estado*:
+      </div>
+      <div class="ui-grid-col-4">
+          <p-inputSwitch [(ngModel)]="persona.estado" onLabel="Activo" offLabel="Inactivo"></p-inputSwitch>
+      </div>
+      <div class="ui-grid-col-2">
+        Fecha registro:
+      </div>
+      <div class="ui-grid-col-4">
+        <p-calendar [(ngModel)]="persona.fechaCreacion" dateFormat="dd/mm/yy" showTime="true" hourFormat="24" [disabled]="true"></p-calendar>
+      </div>
+    </div>
+
+  </div>
+
+</p-panel>
+
+<p-button label="Guardar" ></p-button>
+<p-button label="Cancelar" ></p-button>
+
