@@ -4,6 +4,7 @@ import { Catalogo } from '../modelo/catalogo';
 import { CatalogoService } from '../servicio/catalogo.service';
 import { DropDown } from '../util/dropdown';
 import { PersonaService } from '../servicio/persona.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-persona',
@@ -17,11 +18,15 @@ export class PersonaComponent implements OnInit {
   persona: Persona;
 
   constructor(
+    private route: ActivatedRoute,
     private catalogoService: CatalogoService,
     private personaService: PersonaService
   ) { }
 
   ngOnInit() {
+
+    this.route.queryParams.subscribe(params => console.log(params['id']));
+
     this.fijarGeneros();
     this.fijarPersona();
   }
