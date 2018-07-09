@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../modelo/persona'
+import { Catalogo } from '../modelo/catalogo';
+import { CatalogoService } from '../servicio/catalogo.service';
+import { DropDown } from '../util/dropdown';
+import { PersonaService } from '../servicio/persona.service';
 
 @Component({
   selector: 'app-persona',
@@ -8,30 +12,45 @@ import { Persona } from '../modelo/persona'
 })
 export class PersonaComponent implements OnInit {
 
-  persona: Persona = {
-    primerNombre: "Mateo",
-    segundoNombre: "Sebastian",
-    primerApellido: "Rojas",
-    cedula: "1726020074",
-    idGenero: 1,
-    idPersona: 10,
-    callePrincipal: "Antonio de Ulloa",
-    calleSecundaria: "Rumipamba",
-    celular: "0988817485",
-    email:"mateo.rojas@udla.edu.ec",
-    estado: true,
-    fechaNacimiento: new Date(),
-    numeracionDomicilio: "N34-141",
-    referencia: "Frente a Top Seg",
-    segundoApellido: "Ortiz",
-    telefonoPrincipal: "2245155",
-    telefonoSecundario: "3318998",
-    fechaCreacion: new Date()
-  };
+  generos: DropDown[];
 
-  constructor() { }
+  persona: Persona;
+
+  constructor(
+    private catalogoService: CatalogoService,
+    private personaService: PersonaService
+  ) { }
 
   ngOnInit() {
+    this.fijarGeneros();
+    this.fijarPersona();
   }
 
+  fijarPersona(): void {
+
+    this.personaService.obtenerPersonaPorId(1).subscribe(
+      persona => {
+        this.persona = persona;
+      }
+    )
+  }
+
+  fijarGeneros(): void {
+
+    this.catalogoService.obtenerGeneros().subscribe(
+      generos => {
+        this.generos = this.mapearGeneros(generos);
+      }
+    );
+  }
+
+  mapearGeneros(generos: Catalogo[]): DropDown[] {
+
+    return generos.map((genero) => {
+      return {
+        label: genero.nombre,
+        value: genero.id
+      };
+    });
+  }
 }

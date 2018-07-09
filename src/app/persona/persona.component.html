@@ -54,7 +54,7 @@
         Genero*:
       </div>
       <div class="ui-grid-col-2">
-        <p-dropdown [(ngModel)]="persona.idGenero" placeholder="Seleccione un genero" [showClear]="true"></p-dropdown>
+        <p-dropdown [options]="generos" [(ngModel)]="persona.idGenero" placeholder="Seleccione un genero" [showClear]="true"></p-dropdown>
       </div>
     </div>
 
