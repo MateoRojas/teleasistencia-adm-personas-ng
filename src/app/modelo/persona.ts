@@ -1,6 +1,6 @@
 export class Persona {
 
-    idPersona: number;
+    id: number;
     idGenero: number;
     primerNombre: string;
     segundoNombre: string;
@@ -16,6 +16,6 @@ export class Persona {
     telefonoSecundario: string;
     celular: string;
     email: string;
-    estado: boolean;
+    estado: number;
     fechaCreacion: Date;
 }
