@@ -16,7 +16,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
 import { AppComponent } from './app.component';
 import { PersonaComponent } from './persona/persona.component';
 import { AppRoutingModule } from './app-routing.module';
-import { httpInterceptorProviders } from './configuracion/interceptor/interceptor';
+import { httpInterceptorProviders } from './configuracion/interceptor/interceptors';
 import { EstadoBooleanPipe } from './configuracion/pipes/estado-boolean.pipe';
 
 @NgModule({
