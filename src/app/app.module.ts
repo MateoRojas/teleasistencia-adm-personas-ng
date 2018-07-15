@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { PersonaComponent } from './persona/persona.component';
 import { AppRoutingModule } from './app-routing.module';
 import { httpInterceptorProviders } from './configuracion/interceptor/interceptor';
-import { EstadoBooleanPipe } from './configuracion/pipes/estado-boolean-pipe';
+import { EstadoBooleanPipe } from './configuracion/pipes/estado-boolean.pipe';
 
 @NgModule({
   declarations: [
