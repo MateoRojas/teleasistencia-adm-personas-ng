@@ -1,0 +1,41 @@
+<p-panel>
+    <p-header>
+        <div class="ui-g-12">
+            <div class="ui-g-1 ui-sm-4" style="padding-top: 0.8em">
+                <label>Nombre:</label>
+            </div>
+            <div class="ui-g-2 ui-sm-6">
+                <input (keyup.enter)="buscarPersonas($event)" type="search" [(ngModel)]="nombre" pInputText placeholder="E.j. Mateo Rojas">
+            </div>
+            <div class="ui-g-1 ui-sm-4" style="padding-top: 0.8em">
+                <label>Cedula:</label>
+            </div>
+            <div class="ui-g-2 ui-sm-6">
+                <input (keyup.enter)="buscarPersonas($event)" type="search" [(ngModel)]="cedula" pInputText placeholder="E.j 1726020074">
+            </div>
+            <div class="ui-g-3 ui-sm-12">
+                <p-button label="Buscar" (click)="buscarPersonas($event)"></p-button>
+            </div>
+        </div>
+    </p-header>
+
+    <div *ngFor="let persona of personas; last as lastItem" class="ui-g lista-personas" 
+        [ngClass]="{'lista-personas-ultima': lastItem}">
+        <div class="ui-g-4 ui-sm-12">
+            {{persona.primerNombre}} {{persona.segundoNombre}} {{persona.primerApellido}} {{persona.segundoApellido}}
+        </div>
+        <div class="ui-g-2 ui-sm-12">
+            {{persona.cedula}}
+        </div>
+        <div class="ui-g-2 ui-sm-12">
+            {{persona.fechaNacimiento | date:'shortDate'}}
+        </div>
+        <div class="ui-g-2 ui-sm-12">
+            02 - {{persona.telefonoPrincipal}}
+        </div>
+        <div class="ui-g-2 ui-sm-12">
+            <p-button [label]="boton" (click)="eventoBoton($event, persona.id)"></p-button>
+        </div>
+    </div>
+</p-panel>
+<p-paginator [rows]="maximo" [totalRecords]="totalElementos" [first]="primeraFila" (onPageChange)="paginador($event)"></p-paginator>

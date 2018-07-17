@@ -1,0 +1,8 @@
+.lista-personas {
+    padding: 2em;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.lista-personas-ultima {
+    border-bottom: 0px;
+}

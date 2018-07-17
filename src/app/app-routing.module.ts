@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PersonaComponent } from './persona/persona.component';
+import { PersonaBusquedaComponent } from './persona-busqueda/persona-busqueda.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/persona', pathMatch: 'full' },
-  { path: 'persona', component: PersonaComponent }
+  { path: '', redirectTo: '/personas/busqueda', pathMatch: 'full' },
+  { path: 'personas', component: PersonaComponent },
+  { path: 'personas/busqueda', component: PersonaBusquedaComponent }
 ];
 
 @NgModule({

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpParams} from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { Persona } from '../modelo/persona';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
+import { Paginado } from '../modelo/paginado';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +50,26 @@ export class PersonaService {
     persona.fechaCreacion = new Date(persona.fechaCreacion);
     persona.fechaNacimiento = new Date(persona.fechaNacimiento);
     return persona;
+  }
+
+  buscarPersonasPorFiltros(cedula: string, nombre: string, pagina: number, maximo: number): Observable<Paginado<Persona[]>> {
+
+    let params = {params: this.buscarPersonasPorFiltrosParametros(cedula, nombre, pagina, maximo)};
+
+    return this.http.get<Paginado<Persona[]>>(
+      environment.baseUrl + '/personas', params
+    );
+  }
+
+  buscarPersonasPorFiltrosParametros(cedula: string, nombre: string, pagina: number, maximo: number): HttpParams {
+
+    let params: HttpParams = new HttpParams();
+
+    if(cedula) params = params.set('cedula', cedula);
+    if(nombre) params = params.set('nombre', nombre);
+    if(pagina) params = params.set('pagina', String(pagina));
+    if(maximo) params = params.set('maximo', String(maximo));
+
+    return params;
   }
 }

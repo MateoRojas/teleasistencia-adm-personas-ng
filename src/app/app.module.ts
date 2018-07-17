@@ -11,19 +11,24 @@ import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { GrowlModule } from 'primeng/growl';
+import { DataViewModule } from 'primeng/dataview';
 import { MessageService } from 'primeng/components/common/messageservice';
+import { PaginatorModule } from 'primeng/paginator';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 import { AppComponent } from './app.component';
 import { PersonaComponent } from './persona/persona.component';
 import { AppRoutingModule } from './app-routing.module';
 import { httpInterceptorProviders } from './configuracion/interceptor/interceptors';
 import { EstadoBooleanPipe } from './configuracion/pipes/estado-boolean.pipe';
+import { PersonaBusquedaComponent } from './persona-busqueda/persona-busqueda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonaComponent,
-    EstadoBooleanPipe
+    EstadoBooleanPipe,
+    PersonaBusquedaComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,10 @@ import { EstadoBooleanPipe } from './configuracion/pipes/estado-boolean.pipe';
     InputSwitchModule,
     AppRoutingModule,
     HttpClientModule,
-    GrowlModule
+    GrowlModule,
+    DataViewModule,
+    PaginatorModule,
+    ScrollPanelModule
   ],
   providers: [
     MessageService,
