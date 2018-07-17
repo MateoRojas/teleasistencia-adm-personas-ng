@@ -1,40 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Persona } from '../modelo/persona'
 import { Catalogo } from '../modelo/catalogo';
 import { CatalogoService } from '../servicio/catalogo.service';
 import { DropDown } from '../modelo/primeng/dropdown';
 import { PersonaService } from '../servicio/persona.service';
-import { ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-persona',
-  templateUrl: './persona.component.html',
-  styleUrls: ['./persona.component.css']
+  selector: 'app-editar-persona',
+  templateUrl: './editar-persona.component.html',
+  styleUrls: ['./editar-persona.component.css']
 })
-export class PersonaComponent implements OnInit {
+export class EditarPersonaComponent implements OnInit {
 
   generos: DropDown[] = [];
 
-  persona: Persona = new Persona();
+  persona: Persona;
 
   constructor(
-    private route: ActivatedRoute,
     private catalogoService: CatalogoService,
     private personaService: PersonaService,
     private messageService: MessageService
   ) { }
 
   ngOnInit() {
-
-    this.route.queryParams.subscribe(
-      params => {
-        this.fijarPersona(+params['id']);
-      }
-    );
-
     this.fijarGeneros();
   }
 
@@ -50,6 +41,8 @@ export class PersonaComponent implements OnInit {
           this.persona = persona;
         }
       );
+    } else {
+      this.persona = new Persona();
     }
   }
 
@@ -94,5 +87,10 @@ export class PersonaComponent implements OnInit {
         value: genero.id
       };
     });
+  }
+
+  @Input()
+  set id(id: number) {
+    this.fijarPersona(id);
   }
 }

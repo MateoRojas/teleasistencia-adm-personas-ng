@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PersonaComponent } from './persona/persona.component';
-import { PersonaBusquedaComponent } from './persona-busqueda/persona-busqueda.component';
+import { AdministracionPersonasComponent } from './administracion-personas/administracion-personas.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/personas/busqueda', pathMatch: 'full' },
-  { path: 'personas', component: PersonaComponent },
-  { path: 'personas/busqueda', component: PersonaBusquedaComponent }
+  { path: '', redirectTo: '/personas', pathMatch: 'full' },
+  { path: 'personas', component: AdministracionPersonasComponent }
 ];
 
 @NgModule({

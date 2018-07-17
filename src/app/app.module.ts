@@ -14,21 +14,23 @@ import { GrowlModule } from 'primeng/growl';
 import { DataViewModule } from 'primeng/dataview';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { PaginatorModule } from 'primeng/paginator';
-import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { DialogModule } from 'primeng/dialog';
 
 import { AppComponent } from './app.component';
-import { PersonaComponent } from './persona/persona.component';
+import { EditarPersonaComponent } from './editar-persona/editar-persona.component';
 import { AppRoutingModule } from './app-routing.module';
 import { httpInterceptorProviders } from './configuracion/interceptor/interceptors';
 import { EstadoBooleanPipe } from './configuracion/pipes/estado-boolean.pipe';
 import { PersonaBusquedaComponent } from './persona-busqueda/persona-busqueda.component';
+import { AdministracionPersonasComponent } from './administracion-personas/administracion-personas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonaComponent,
+    EditarPersonaComponent,
     EstadoBooleanPipe,
-    PersonaBusquedaComponent
+    PersonaBusquedaComponent,
+    AdministracionPersonasComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,7 @@ import { PersonaBusquedaComponent } from './persona-busqueda/persona-busqueda.co
     GrowlModule,
     DataViewModule,
     PaginatorModule,
-    ScrollPanelModule
+    DialogModule
   ],
   providers: [
     MessageService,

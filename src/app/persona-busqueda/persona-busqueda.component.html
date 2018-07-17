@@ -13,7 +13,7 @@
             <div class="ui-g-2 ui-sm-6">
                 <input (keyup.enter)="buscarPersonas($event)" type="search" [(ngModel)]="cedula" pInputText placeholder="E.j 1726020074">
             </div>
-            <div class="ui-g-3 ui-sm-12">
+            <div class="ui-g-4 ui-sm-12">
                 <p-button label="Buscar" (click)="buscarPersonas($event)"></p-button>
             </div>
         </div>
@@ -33,7 +33,11 @@
         <div class="ui-g-2 ui-sm-12">
             02 - {{persona.telefonoPrincipal}}
         </div>
-        <div class="ui-g-2 ui-sm-12">
+
+        <div class="ui-g-1 ui-sm-12">
+            <p-button label="Ver" (click)="eventoBoton($event, persona.id)"></p-button>
+        </div>
+        <div class="ui-g-1 ui-sm-12">
             <p-button [label]="boton" (click)="eventoBoton($event, persona.id)"></p-button>
         </div>
     </div>

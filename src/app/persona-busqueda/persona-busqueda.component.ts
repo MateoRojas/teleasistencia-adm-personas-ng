@@ -13,7 +13,7 @@ export class PersonaBusquedaComponent implements OnInit {
   @Input() nombre: string;
   @Input() cedula: string;
   
-  @Output() botonPresionado:EventEmitter<number>;
+  @Output() botonPresionado:EventEmitter<number> = new EventEmitter();
 
   personas: Persona[];
 
@@ -37,7 +37,6 @@ export class PersonaBusquedaComponent implements OnInit {
     this.maximo = 10;
     this.personas = [];
     this.primeraFila = 0;
-    this.botonPresionado = new EventEmitter();
   }
 
   paginador(event) {

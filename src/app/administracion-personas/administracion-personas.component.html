@@ -1,0 +1,28 @@
+<div>
+    <div>
+        <div>
+            <h1>Personas</h1>
+        </div>
+        <div>
+            <p-button label="Agregar Persona" (click)="agregarPersona($event)"></p-button>
+        </div>
+    </div>
+
+    <app-persona-busqueda boton="Editar" [nombre]="nombre" [cedula]="cedula" (botonPresionado)="editarPersona($event)"></app-persona-busqueda>
+</div>
+
+<p-dialog [(visible)]="popUpEditarPersona" [contentStyle]="{'max-height':'400px'}" [modal]="true" [responsive]="true"
+    [showHeader]="true" [closeOnEscape]="true" [minWidth]="400" [blockScroll]="true" [draggable]="false">
+
+    <p-header>
+        Editar Persona
+    </p-header>
+
+    <app-editar-persona #editar [id]="id" ></app-editar-persona>
+    
+    <p-footer>
+        <p-button label="Guardar" (click)="editar.guardarPersona($event)"></p-button>
+        <p-button label="Cancelar" (click)="cerrarPopUpEditarPersona($event)"></p-button>
+    </p-footer>
+
+</p-dialog>
